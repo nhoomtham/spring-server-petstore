@@ -37,6 +37,9 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
+      # run scanning code review
+      - run: mvn sonar:sonar   -Dsonar.organization=nk-test-code-review   -Dsonar.host.url=https://sonarcloud.io   -Dsonar.login=b590c31c5040b7a30770fb27862c69c526706ec6
+
       # run tests!
       - run: mvn integration-test
 
